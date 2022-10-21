@@ -1,0 +1,33 @@
+﻿.counter {
+    font-size: 69px;
+    font-weight: 600;
+    color: #222;
+    line-height: 1;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Arial,sans-serif;
+    letter-spacing:5px;
+}
+.counters {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom:100px;
+}
+.counter-title {
+    text-align: center;
+    font-size: 19px;
+    font-weight: 500;
+    color: #666;
+    line-height: 2.5;
+}
+
+.intro {
+    margin-top:100px;
+    color: #7a7a7a;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.7em;
+}
+
+.video{
+    margin-top:85px;
+    margin-bottom:100px;
+}

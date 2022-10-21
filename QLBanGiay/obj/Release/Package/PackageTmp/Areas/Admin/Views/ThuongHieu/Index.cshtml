@@ -1,0 +1,134 @@
+﻿@using QLBanGiay.Models
+@using PagedList.Mvc;
+@model  PagedList.PagedList<QLBanGiay.THUONGHIEU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAmin.cshtml";
+}
+
+
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                @Html.Action("QuanLiPartial", "Home")
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                @Html.Action("NavtopPartial", "Home")
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Brands <small>famous</small></h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Go!</button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Brand</h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li>
+                                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#">Settings 1</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <p>Famous brand</p>
+
+                                    <!-- start project list -->
+                                    <table class="table table-striped projects">
+                                        <thead>
+                                            <tr style="background-color:#2A3F54;color:#ffffff">
+                                                <th>Tên thương hiệu</th>  
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.TenThuongHieu)
+                                                    </td>                                                    
+                                                    <td>
+                                                        <a href="@Url.Action("Details", new { id = item.MaTH })" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
+                                                        <a href="@Url.Action("Edit", new { id = item.MaTH })" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                                        <a href="@Url.Action("Delete", new { id = item.MaTH })" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <div style="text-align:center">
+                                        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                                    </div>
+                                    <div class="MenuTrang" style="text-align:center">
+                                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+                                    </div>
+                                    <style>
+                                        .MenuTrang {
+                                            display: inline;
+                                            text-align: center;
+                                        }
+                                    </style>
+                                    <!-- end project list -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+</body>
+
+
+

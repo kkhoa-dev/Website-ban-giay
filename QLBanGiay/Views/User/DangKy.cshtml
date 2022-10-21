@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "DangKy";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+
+<head>
+<link href="~/Content/singup.css" rel="stylesheet" />
+</head>
+
+<div id="login-box">
+    <form method="post">
+        <div class="left">
+            <h1>Sign up</h1>
+
+            <input type="text" id="HoTen" name="HoTen" placeholder="Họ và tên" />
+            <p style="color:red;">@ViewData["err1"]</p>
+            <input type="text" id="TenDN" name="TenDN" placeholder="Username" />
+            <p style="color:red;">@ViewData["err2"]</p>
+            <input type="password" id="MatKhau" name="MatKhau" placeholder="Password" />
+            <p style="color:red;">@ViewData["err3"]</p>
+            <input type="password" id="MatKhauNL" name="MatKhauNL" placeholder="Nhập lại mật khẩu" />
+            <p style="color:red;">@ViewData["err4"]</p>
+            <input type="text" id="Email" name="Email" placeholder="E-mail" />
+            <p style="color:red;">@ViewData["err5"]</p>
+            <input type="text" id="DienThoai" name="DienThoai" placeholder="Điện thoại" />
+            <p style="color:red;">@ViewData["err6"]</p>
+            <input type="date" name="NgaySinh" placeholder="Ngày sinh" />
+            <input type="text" name="DiaChi" placeholder="Địa chỉ" />
+
+
+
+            <input type="submit" value="Sign up" />
+            <input type="reset" value="Xoá thông tin" />
+        </div>
+
+        <div class="right">
+            <span class="loginwith">Sign in with<br />social network</span>
+
+            <button class="social-signin facebook">Log in with facebook</button>
+            <button class="social-signin twitter">Log in with Twitter</button>
+            <button class="social-signin google">Log in with Google+</button>
+        </div>
+    </form>
+    
+</div>
+

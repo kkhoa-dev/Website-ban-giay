@@ -1,0 +1,127 @@
+﻿@model QLBanGiay.KHACHHANG
+@{
+    ViewBag.Title = "ChangePass";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Pudding</title>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blue Pudding</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/profile.css" rel="stylesheet" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+    <!-- Latest compiled JavaScript -->
+    @*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+    @Html.Action("NavbarPartial", "Home")
+
+    <div class="container" style="margin-top:50px;">
+        <div class="row gutters">
+            <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="account-settings">
+                            <div class="user-profile">
+                                <div class="user-avatar">
+                                    <img src="~/Images/admin.jpg" alt="Maxwell Admin">
+                                </div>
+                                <h5 class="user-name">@kh.HoTen</h5>
+                                <h6 class="user-email">@kh.Email</h6>
+                            </div>
+                            <div class="about">
+                                <h5 style="font-size:16px;color:#3fe4e6">About</h5>
+                                <p>Chào mừng bạn đến với thế giới của những đôi giày</p>
+                            </div>
+                            <div style="text-align:center; ">
+                                <button class="btn btn-primary" style="background-color:#007bff;margin-top:45px; width:150px">
+                                    Đổi mật khẩu
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                <div class="card h-100">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="card-body">
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <h6 style="font-size:16px;color:#3fe4e6">Personal Details</h6>
+                                </div>
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                @Html.HiddenFor(model => model.MaKH)
+                                @Html.HiddenFor(model => model.TaiKhoan)
+                                @Html.HiddenFor(model => model.HoTen)
+                                @Html.HiddenFor(model => model.NgaySinh)
+                                @Html.HiddenFor(model => model.DienThoai)
+                                @Html.HiddenFor(model => model.Email)
+                                @Html.HiddenFor(model => model.DiaChi)
+
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label>Mật khẩu cũ</label>
+                                        @Html.EditorFor(model => model.MatKhau, new { htmlAttributes = new { @class = "form-control" ,@name = "" } })
+                                        @Html.ValidationMessageFor(model => model.MatKhau, "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="eMail">Mật khẩu mới</label>
+                                        <input type="password" id="MatKhauNL" name="MatKhauNL" placeholder="Nhập lại mật khẩu" />
+                                        <p style="color:red;">@ViewData["err4"]</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="form-group">
+                                        <label for="phone">Nhập lại mật khẩu</label>
+                                        @Html.EditorFor(model => model.DienThoai, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.DienThoai, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div class="row gutters">
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary" style="background-color:#007bff">Update</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

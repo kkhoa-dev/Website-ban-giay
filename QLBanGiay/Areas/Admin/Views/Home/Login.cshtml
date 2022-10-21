@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Simple Login Form</title>
+    <link href="~/Content/loginadmin.css" rel="stylesheet" />
+    @*@Styles.Render("~/Content/css")*@
+    <meta charset="UTF-8" />
+    <meta name="Designer" content="PremiumPixels.com">
+    <meta name="Author" content="$hekh@r d-Ziner, CSSJUNTION.com">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Login</h1>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" name="Username" required>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="Password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <p style="font-style:italic; color: red; margin: 0px;">@ViewBag.ThongBao</p>
+            <div class="pass">Forgot Password?</div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="#">Signup</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

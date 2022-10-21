@@ -1,0 +1,58 @@
+﻿@model PagedList.PagedList<GIAY>
+@using QLBanGiay.Models;
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "GiayTheoThuongHieu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+
+            @Html.Action("ThuongHieuPartial", "Home")
+            <br>
+
+            @Html.Action("LoaiGiayPartial", "Home")
+
+        </div>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+            <h2 class="text-center">SẢN PHẨM THEO THƯƠNG HIỆU</h2>
+            <hr>
+            @foreach (var theothuonghieu in Model)
+            {
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+                    <div class="thumbnail">
+                        <img src="~/Images/@theothuonghieu.AnhGiay" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook ">
+                        <div class="caption">
+                            <p><a href="@Url.Action("chiTietGiay","Home", new {id = theothuonghieu.MaGiay})">@theothuonghieu.TenGiay</a></p>
+                            <p> @Html.FormatValue(theothuonghieu.GiaBan, "{0:#,##0}") VNĐ</p>
+                            <p><a href="@Url.Action("ThemGioHang", "GioHang", new { mg = theothuonghieu.MaGiay, url = Request.Url.ToString() })" class="btn btn-warning" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <hr>
+    </div>
+</div>
+
+@*Tạo liên kết các trang*@
+       <p style="text-align:center;"> Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber) of @Model.PageCount </p>
+        <div class="MenuTrang">
+            @Html.PagedListPager(Model, page => Url.Action("GiayTheoThuongHieu", new { iMaTH = ViewBag.MaTH, page = page }))
+        </div>
+        <style>
+            .MenuTrang {
+                display: inline;
+                text-align: center;
+            }
+        </style>
+        <hr/>
+        <div class="container">
+            <h2 style="text-align:center">Sản Phẩm Mới</h2>
+            @Html.Action("SanPhamMoiPartial", "Home")
+        </div>
+

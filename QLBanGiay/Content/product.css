@@ -1,0 +1,59 @@
+﻿.row .product .collapse {
+    border: 5px dashed #f1f1f1;
+    text-align: left;
+}
+
+.row .collapse div i {
+    margin-right: 2rem;
+    color: #23232c;
+    padding: 1rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+.row .collapse div {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0;
+    margin: 0 1.5rem;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.collapse .freeShipping i {
+    background-color: #fff4b8 !important;
+    color: #e6ae15 !important;
+}
+
+.codPayment i {
+    background-color: #bff9d0 !important;
+    color: #00d994 !important;
+}
+
+.returnGoods i {
+    background-color: #ffd0d0 !important;
+    color: #d45757 !important;
+}
+
+.tongDai {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 20px 0;
+    font-weight: 400;
+    font-size: 18px;
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+.tongDai h4 {
+    font-weight:500;
+    font-size:1.8rem;
+    line-height: 1.2;
+}
+
+.tongDai a {
+    margin-left: 1rem;
+    color: #e62727;
+}
+
+

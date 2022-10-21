@@ -1,0 +1,44 @@
+﻿<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #095b61" >
+    <!--navbar-fixed-top-->
+    <div class="container">
+        <div class="navbar-header">    
+            <a class="navbar-brand" href="/Home/Index" style="letter-spacing:2px;color: white ">BLUEPUDDING</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar1">
+            <ul class="nav navbar-nav">
+                <li><a href="/Home/Index" >TRANG CHỦ</a> </li>
+                <li><a href="#">LIÊN HỆ</a> </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">THƯƠNG HIỆU<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        @foreach (var th in Model)
+                        {
+                            <li><a href="@Url.Action("GiayTheoThuongHieu", "Home", new { iMaTH = th.MaTH })">@th.TenThuongHieu</a></li>
+                            <li role="separator" class="divider"></li>
+                        }
+
+                    </ul>
+                </li>
+
+            </ul>
+            <div class="navbar-form navbar-left" role="search">
+                @using (Html.BeginForm("GetValueKey", "Search"))
+                {
+                <div class="form-group" style="display:inline-block;margin-left:5px;">
+                    <input type="text" name="sTuKhoa" style="margin-left:0" class="form-control" placeholder="Nhập từ khoá..">
+                </div>
+                <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+                }
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+               @Html.Action("LoginLogoutPartial", "Home")
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <a href="#">@Html.Action("GioHangPartial", "GioHang")</a>
+            </form>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-->
+</nav>
+

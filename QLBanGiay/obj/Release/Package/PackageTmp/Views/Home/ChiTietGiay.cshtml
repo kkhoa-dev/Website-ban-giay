@@ -1,0 +1,212 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietGiay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <link href="~/Content/product.css" rel="stylesheet" />
+    <style type="text/css">     
+
+        .imgqq {
+            width: 70px;
+            height:90px;
+        }
+    </style>
+</head>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+            @Html.Action("ThuongHieuPartial", "Home")
+            <br>
+
+            @Html.Action("LoaiGiayPartial", "Home")
+
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <img class="img-thumbnail" style="border:none;" src="~/Images/@Model.AnhGiay" alt="@Model.TenGiay" />
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <h2 class="tensach" style="font-size:3.2rem;font-weight:300;">
+                @Model.TenGiay
+            </h2>
+            <div class="motagiay" style="margin-top:30px;font-size:20px">
+                <p style="font-weight: 400; font-size:1.5rem;margin-bottom:30px">
+                    @Html.Raw(Model.MoTa.ToString().Replace("\n", "</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp"))
+                </p>
+            </div>
+            <h4 class="giaban" style="margin-bottom:30px"><span> @Html.FormatValue(Model.GiaBan, "{0:#,##0}") <u>đ</u></span></h4>
+            <h4>Kích cỡ: @Model.Size</h4>
+            <div id="myDIV">
+                <button class="btnn">39</button>
+                <button class="btnn active">40</button>
+                <button class="btnn">41</button>
+                <button class="btnn">42</button>
+                <button class="btnn">43</button>
+            </div>
+
+            <p class="ngaycapnhat" style="margin-top:30px;font-size:20px">Ngày cập nhật: @Html.FormatValue(Model.NgayCapNhat, "{0:dd/MM/yyyy}")</p>
+
+            <p class="addtocard">
+                <a href="@Url.Action("ThemGioHang", "GioHang", new {mg = Model.MaGiay, url = Request.Url.ToString()})"
+                   class="btn btn-primary" role="button" style="margin-top:50px;width:355px;height:50px">
+                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true" style="align-items:center"></span> Mua ngay
+                </a>
+            </p>
+            <div class="product" style="border-bottom: 1px solid #f1f1f1;margin-top:50px">
+                <p style="display:inline;font-size:15px">CHÍNH SÁCH GIAO HÀNG & ĐỔI TRẢ</p>
+                <button style="display:inline;margin-left:52px;margin-bottom:10px;background-color:transparent" class="btn btn-dark" type="button" data-toggle="collapse" data-target="#footwear" aria-expanded="false" aria-controls="footwear">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <div class="collapse" id="footwear" >
+                    <div class="freeShipping">
+                        <i class="fa fa-truck box-icon" aria-hidden="true"></i>  Giao hàng hoàn toàn miễn phí 100%
+                    </div>
+                    <div class="codPayment">
+                        <i class="fa fa-shield" aria-hidden="true"></i> An toàn với nhận hàng và trả tiền tại nhà
+                    </div>
+                    <div class="returnGoods">
+                        <i class="fa fa-exchange" aria-hidden="true"></i>  Bảo hành đổi trả trong vòng 60 ngày
+                    </div>
+                </div>
+            </div>
+            <div class="product2" style="margin-top:10px">
+                <p style="display:inline;font-size:15px">HƯỚNG DẪN BẢO QUẢN</p>
+                <button style="display:inline;margin-left:135px;margin-bottom:10px;background-color:transparent;" class="btn btn-light" type="button" data-toggle="collapse" data-target="#footwear2" aria-expanded="false" aria-controls="footwear">
+                    <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+
+                <div class="collapse" id="footwear2" style="color: #7c7c80;font-size:1.4rem;">
+                    <ul>
+                        <li style="margin:2rem 0 2rem">
+                            <strong>Khử mùi bên trong giày</strong>
+                        </li>
+                    </ul>
+                        <p style="margin-bottom:0;line-height:2">
+                            Bạn hãy đặt túi đựng viên chống ẩm vào bên trong giày để hút ẩm và rắc phấn rôm (có thể thay bằng cách đặt vào bên trong giày gói trà túi lọc chưa qua sử dụng) để khử mùi, giúp giày luôn khô thoáng.
+                        </p>
+                        <p style="line-height:2;margin-bottom:2rem">
+                            Để hạn chế mùi hôi và sự ẩm ướt cho giày, hãy chọn vớ chân loại tốt, có khả năng thấm hút cao. Ngoài ra, dùng các loại lót giày khử mùi cũng là một phương pháp tốt.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Bảo quản giày khi không sử dụng</strong>
+
+                            </li>
+                        </ul>
+                        <p style="line-height:2;margin-top:2rem">
+                            Khi sử dụng giày, bạn đừng vội vứt hộp đi mà hãy cất lại để dành. Khi không sử dụng, hãy nhét một ít giấy vụn vào bên trong giày để giữ cho dáng giày luôn chuẩn, đẹp. Sau đó đặt giày vào hộp bảo quản cùng túi hút ẩm.
+                        </p>                   
+                </div>
+            </div>
+            <div class="tongDai" >
+                <h4 style="display:inline">
+                    TỔNG ĐÀI BÁN HÀNG
+                    <a href="#" style="display:inline"><i class="fa fa-phone-square" aria-hidden="true"></i> 097.123.4567</a>
+                </h4>
+                <small style="color: #7c7c80;line-height:2">Miễn phí từ (8:30 - 21:30) mỗi ngày</small>
+            </div>
+
+        </div>
+
+        <hr>
+    </div>
+</div>
+
+<div class="container">
+    <div class="container">
+        <div class="row"style="margin-top:35px;margin-bottom:20px;">
+            <div class="col-lg-6 col-md-6">
+                <div class="media-object-default">
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object imgqq" src="~/Images/qq1.png"  alt="placeholder image"> </a> </div>
+                        <div class="media-body">
+                            <h4>Chất lượng sản phẩm?</h4>
+                            Sản phẩm luôn được BLUEPUDDING kiểm định, đánh giá với chất lượng cao nhất trước khi đến tay khách hàng!
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object imgqq" src="~/Images/qq3.png" alt="placeholder image"> </a> </div>
+                        <div class="media-body">
+                            <h4>Sai màu sản phẩm?</h4>
+                            Vì 1 số yếu tố khách quan như độ sáng màn hình, chất lượng màn hình nên sản phẩm có thể ko đúng màu.
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object imgqq" src="~/Images/qq5.png" alt="placeholder image"></a></div>
+                        <div class="media-body">
+                            <h4>Hàng có sẵn không?</h4>
+                            Sản phẩm hiện có sẵn tại hệ thống cửa hàng BLUEPUDDING và online tại website.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="hidden-md hidden-lg">
+            <div class="col-lg-6 col-md-6">
+                <div class="media-object-default">
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object imgqq" src="~/Images/qq2.png" alt="placeholder image"></a></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">Thời gian giao hàng?</h4>
+                            Chúng tôi sử dụng đơn vi vận chuyển uy tín và nhanh chóng nhất, thời dự kiến từ 1-4 ngày tuy khu vực.
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object imgqq" src="~/Images/qq7.png" alt="placeholder image"></a></div>
+                        <div class="media-body">
+                            <h4>Bảo hành sản phẩm</h4>
+                            Sản phẩm được bảo hành trong 30 ngày với bất kỳ lỗi nào. Hàng SALE không được bảo hành.
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="media-left"> <a href="#"> <img class="media-object imgqq" src="~/Images/qq4.png" alt="placeholder image"></a></div>
+                        <div class="media-body">
+                            <h4>Thời gian làm việc?</h4>
+                            Hệ thống cửa hàng và Online làm việc từ 8:30 - 22:00 hàng ngày.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <hr>
+</div>
+
+<div class="container">
+    <h2 style="text-align:center;">Sản phẩm mới</h2>
+    @Html.Action("SanPhamMoiPartial", "Home")
+</div>
+<script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("myDIV");
+    var btns = header.getElementsByClassName("btnn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
+<style>
+    /* Style the buttons */
+    #myDIV .btnn {
+        border: none;
+        outline: none;
+        padding: 10px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+    /* Style the active class, and buttons on mouse-over */
+    #myDIV .active, .btnn:hover {
+        background-color: #666;
+        color: white;
+    }
+</style>
+

@@ -1,0 +1,40 @@
+﻿@using QLBanGiay.Models
+@{
+    KHACHHANG kh = (KHACHHANG)Session["TaiKhoan"];
+}
+
+@if (Session["TaiKhoan"] == null)
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle-o" style="font-size:19px;margin-right:8px;"></i><i class="fa fa-caret-down" aria-hidden="true"></i>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="dropdown-item" href="/User/DangNhap" style="padding:12px 20px;" >Đăng nhập</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="/User/DangKy" style="padding:12px 20px;">Đăng ký</a>
+            </li>
+        </ul>
+    </li>   
+
+}
+else
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-user-circle-o" style="font-size:18px;padding-right:5px;"></i>@kh.HoTen <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </a>
+        <ul class="dropdown-menu" >
+            <li>
+                <a class="dropdown-item" href="@Url.Action("InfoUser","User", new { id = kh.MaKH })" style="padding:12px 20px;">Profile</a>
+            </li>
+            <li>
+                <a class="dropdown-item" href="@Url.Action("DangXuat","User")" style="padding:12px 20px;">Log out<span class="glyphicon glyphicon-log-in" style="margin-left:60px;"></span></a>
+            </li>
+        </ul>
+    </li>
+   
+}
+

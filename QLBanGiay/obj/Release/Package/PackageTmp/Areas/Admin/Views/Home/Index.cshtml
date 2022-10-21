@@ -1,0 +1,101 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAmin.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                @Html.Action("QuanLiPartial", "Home")
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                @Html.Action("NavtopPartial", "Home")
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <!-- top tiles -->
+                <div class="row tile_count">
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
+                        <div class="count">@ViewBag.CountSP</div>
+
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-clock-o"></i> Total Product</span>
+                        <div class="count">@ViewBag.CountKH</div>
+
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Order</span>
+                        <div class="count green">@ViewBag.countDH</div>
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Brands</span>
+                        <div class="count">@ViewBag.brand</div>
+
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                        <span class="count_top"><i class="fa fa-user"></i> Total Money</span>
+                        <div class="count">@ViewBag.total</div>
+
+                    </div>
+
+
+                </div>
+                <!-- /top tiles -->
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="dashboard_graph">
+
+                            <div class="row x_title">
+                                <div class="col-md-6">
+                                    <h3>Welcome to Admin page</h3>
+                                </div>
+                              
+                            </div>
+
+                            <div class="col-md-9 col-sm-9 col-xs-12">
+                               
+                                <img src="~/Images/giaypage.jpg" width="1170" height="550"/>
+                            </div>
+                          
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                </div>
+                <br />
+
+               
+
+
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+
+
+

@@ -1,0 +1,167 @@
+﻿@model QLBanGiay.GIAY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAmin.cshtml";
+}
+
+<style type="text/css">
+    img{
+        width:200px;
+        margin-bottom: 20px;
+    }
+</style>
+
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                @Html.Action("QuanLiPartial", "Home")
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                @Html.Action("NavtopPartial", "Home")
+            </div>
+            <!-- /top navigation -->
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>Chi tiết sản phẩm</h3>
+                        </div>
+
+                        
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Product Detail</h2>
+                                   
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <div class="col-md-7 col-sm-7 col-xs-12">
+                                        <div class="product-image">
+                                            <img src="~/Images/@Model.AnhGiay" alt="@Model.TenGiay" />
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+
+                                        <h3 class="prod_title">@Html.DisplayFor(model => model.TenGiay)</h3>
+
+                                        <p>@Html.Raw(Model.MoTa.ToString().Replace("\n", "</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp"))</p>
+                                        <br />
+                                        <h2>Thương hiệu</h2>
+                                        <p>@Html.DisplayFor(model => model.THUONGHIEU.TenThuongHieu)</p>
+
+                                        <h2>Loại giày</h2>
+                                        <p>@Html.DisplayFor(model => model.LOAIGIAY.TenLoaiGiay)</p>
+                                        <br />
+                                        <div class="">
+                                            <h2>Available Colors</h2>
+                                            <ul class="list-inline prod_color">
+                                                <li>
+                                                    <p>Green</p>
+                                                    <div class="color bg-green"></div>
+                                                </li>
+                                                <li>
+                                                    <p>Blue</p>
+                                                    <div class="color bg-blue"></div>
+                                                </li>
+                                                <li>
+                                                    <p>Red</p>
+                                                    <div class="color bg-red"></div>
+                                                </li>
+                                                <li>
+                                                    <p>Orange</p>
+                                                    <div class="color bg-orange"></div>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <br />
+
+                                        <div class="">
+                                            <h2>Size  @Html.DisplayFor(model => model.Size)</h2>
+                                            <ul class="list-inline prod_size">
+                                                <li>
+                                                    <button type="button" class="btn btn-default btn-xs">Small</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" class="btn btn-default btn-xs">Medium</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" class="btn btn-default btn-xs">Large</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" class="btn btn-default btn-xs">Xtra-Large</button>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                      
+
+                                        <div class="">
+                                            <div class="product_price">
+                                                <h1 class="price">@Html.FormatValue(Model.GiaBan, "{0:#,##0}") VNĐ</h1>
+                                                <span class="price-tax">Số lượng: @Html.DisplayFor(model => model.SoLuongBan) </span>
+                                                <br>
+                                            </div>
+                                        </div>
+
+                                        <div class="">
+                                            <a href="@Url.Action("Edit", new { id = Model.MaGiay })" class="btn btn-default btn-lg">Sửa</a>
+                                        </div>
+                                        <p>Ngày cập nhật  @Html.FormatValue(Model.NgayCapNhat, "{0:dd/MM/yyyy}")</p>
+
+                                        <div class="product_social">
+                                            <ul class="list-inline">
+                                                <li>
+                                                    <a href="#"><i class="fa fa-facebook-square"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-twitter-square"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-envelope-square"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#"><i class="fa fa-rss-square"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+
+                                 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /page content -->
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+</body>
+
+

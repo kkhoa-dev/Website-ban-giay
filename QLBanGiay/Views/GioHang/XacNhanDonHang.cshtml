@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "XacNhanDonHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <h2 style="margin-bottom:50px;color:#3ad0d2">Đặt Hàng Thành Công</h2>
+
+    <div class="media" style="margin-bottom:20px;">
+        <div class="media-left"><img class="media-object imgqq" style="width:50px;height:50px;" src="~/Images/NicePng_success-image-png_3624869.png" alt="placeholder image"></div>
+        <div class="media-body">
+            <h4 class="media-heading" style="font-weight:bold">Cảm ơn bạn đã đặt hàng</h4>
+            Đơn hàng của quý khách đã được chúng tôi ghi nhận,
+            chúng tôi sẽ liên hệ quý khách trong thời gian sớm nhất
+            và giao hàng đúng hẹn
+        </div>
+    </div>  
+   
+    <a href="@Url.Action("Index","Home")" class="btn btn-primary" style="margin-bottom:100px;">
+        <span>Tiếp tục mua hàng</span>
+    </a>
+</div>
+

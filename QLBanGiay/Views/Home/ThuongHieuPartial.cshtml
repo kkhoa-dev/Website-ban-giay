@@ -1,0 +1,8 @@
+﻿<ul class="list-group">
+    <li class="list-group-item active" style="font-weight:bold; text-align:center; background-color: black">THƯƠNG HIỆU</li>
+    @foreach (var thuonghieu in Model)
+    {
+        <a href="@Url.Action("GiayTheoThuongHieu", "Home", new { iMaTH = thuonghieu.MaTH })" class="list-group-item">@thuonghieu.TenThuongHieu</a>
+    }
+
+</ul>

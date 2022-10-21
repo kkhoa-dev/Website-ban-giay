@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/login.css" rel="stylesheet" />
+</head>
+
+<div id="login-box">
+    <form method="post">
+        <div class="left">
+            <h1>Login</h1>
+            <input type="text" id="TenDN" name="TenDN" placeholder="Username" />
+            <p style="color:red;">@ViewData["Err1"]</p>
+            <input type="password" id="MatKhau" name="MatKhau" placeholder="Password" />
+            <p style="color:red;">@ViewData["Err2"]</p>
+
+            <input type="submit" value="Sign in" />
+            <p style="font-style:italic; color:red;margin:0px;">@ViewBag.ThongBao</p>
+        </div>
+
+        <div class="right">
+            <span class="loginwith">Sign in with<br />social network</span>
+            <button class="social-signin facebook">Log in with facebook</button>
+            <button class="social-signin twitter">Log in with Twitter</button>
+            <button class="social-signin google">Log in with Google+</button>
+        </div>
+    </form>
+
+</div>
